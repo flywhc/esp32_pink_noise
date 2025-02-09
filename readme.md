@@ -3,7 +3,9 @@
 ## Introduction
 This software makes your ESP32 board act as a Bluetooth A2DP player/transmitter and plays pink noise via your Bluetooth speaker.
 
-This project is for ESP32 boards only - other ESP32s doesn't support A2DP.
+This project is for ESP32 boards only - other ESP32s doesn't support A2DP. 
+
+![Pink Noise player modifed using Tmall Speaker](./images/tmall_speaker.jpg)
 
 ## Features
 Configure your Bluetooth speaker via WiFi AP and web interface.
@@ -36,6 +38,8 @@ Please use the following settings to flash the firmware:
 The firmware size is over 1.8 MB so that it is important to select the correct partition scheme.
 
 ## Select your Bluetooth speaker
+WiFi can't be connected while Bluetooth is working on ESP32 due to ESP23 hardware restriction. The ESP32 WiFi/BT co-existing mode is unstable. So it has to scan BT device when WiFi is off and turn off BT before enabling WiFi.
+
 1. Turn on your Bluetooth speaker and make sure it is in pairing mode.
 2. press all three buttons at same time and you will see the LED blinking for up to 15 seconds.
 3. Then the LED will be always on. Connect to the WiFi AP 'esp32noise' and your device should pop up the captive portal. If not, please try to open any web page in your browser and it should be redirected to the captive portal.
@@ -66,9 +70,21 @@ Alternatively, you may set defaultBtName to your Bluetooth speaker's name in the
 
 ![Schematic](./images/Schematic_ESP32PinkNoise_2025-01-27.png)
 
+
+## Tmall Genie BT Speaker Modification 
+Open the speaker by removing the screws.
+![open tmall speaker](./images/tmall_speaker3.jpg)
+
+You may find Vcc and GND on the PCB board.
+![open tmall speaker](./images/tmall_speaker2.jpg)
+
+Solder the wires to ESP32, DCDC and the buttons.
+![open tmall speaker](./images/tmall_speaker4.jpg)
+
+ESP32 and DCDC boards are so tiny that can be inserted into the speaker.
+
 ## Tips
 The capacitive touch buttons can be any metal material such as pin, nail, paper clip, etc.
 You may need to polish the oxydic surface before soldering the wires to the buttons.
 
 The ESP32 board can be mounted on the back of or inside the speaker.
-
